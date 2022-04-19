@@ -6,6 +6,11 @@
 #include <stdio.h>
 
 void* apply(void* in, int nElts, int eltSize, void (*f) (void*, void*), void* out){
-
-
+void *end = in+ eltSize*nElts;
+    while (in != end){
+        f(in,out);
+        in+=eltSize;
+        out+=eltSize;
+    }
 }
+
